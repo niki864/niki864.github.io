@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP
+    html5up.net
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Jekyll build mod and further hacks by @arkadianriver, MIT license
+-->
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boston Crime</title>
+  <meta name="description" content="Analysis and mapping of crime in the Boston area">
+  <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="canonical" href="http://localhost:4000/works/works-bostoncrime.html">
+  <link rel="stylesheet" href="/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+  <style>
+  #main > header {
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/boston-crime.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/boston-crime.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/boston-crime.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/boston-crime.jpg");
+  }
+  </style>
+  <!--[if lte IE 9]>
+  <style>
+  #main > header {
+    background-image: url("/images/boston-crime.jpg");
+  }
+  </style>
+  -->
+  <link rel="alternate" type="application/rss+xml" title="Nikilesh Kumar" href="http://localhost:4000/feed.xml">
+</head>
+
+
+  <body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+<header id="header">
+  <h1><a href="/index.html">Nikilesh Kumar</a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="special">
+        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+        <div id="menu">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/works/">Works</a></li>
+            <li><a href="/topics/">Topics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/resume.pdf"> Resume </a></li>
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+      <article id="main">
+
+          <header>
+    <h2>Boston Crime</h2>
+    <p>Analysis and mapping of crime in the Boston area</p>
+  </header>
+  <ul class="breadcrumb">
+  <li><a href="/index.html">Home</a></li>
+  <li style="text-transform: capitalize;"><a href="/works">works</a></li>
+  <li>Boston Crime</li>
+</ul>
+
+
+
+          <section class="wrapper style5">
+    <div class="inner">
+      <span id="post-date">23 February 2018</span><hr
+        style="margin-top:3px;" />
+      <h4>Skills</h4>
+  <ul class="techlist">
+<li><span class="tech">RStudio</span></li>
+<li><span class="tech">ggplot</span></li>
+<li><span class="tech">ggmap</span></li>
+<li><span class="tech">lubridate</span></li>
+<li><span class="tech">dplyr</span></li>
+</ul>
+
+  
+
+      <h2 id="crime-statistics-description">Crime Statistics Description</h2>
+
+<div style="text-align: justify">Analysed the crime data provided by https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system to visualise and identify crime hotspots.
+I first generated a crime heatmap based on reported locations of crime. 
+Then, I thought it would be interesting to see the change in crime over a period of two years. 
+I analysed the crime data, grouped it by district to actually see pct change in crime across two years.</div>
+
+<p>The dataset for 2016-17 has 91561 variables. I’m using a February to February year cycle.</p>
+
+<p>Likewise, the dataset 2017-18 has 92041 variables.</p>
+
+<h2 id="packages-required">Packages Required</h2>
+
+<p>plyr, ggmap, ggplot2, lubridate ; all downloadable from CRAN</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>R and R Studio</p>
+
+<h2 id="dataset-description">Dataset Description</h2>
+
+<div style="text-align: justify">Data is available from the city of Boston data repositories. Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond. This is a dataset containing records from the new crime incident report system, which includes a reduced set of fields focused on capturing the type of incident as well as when and where it occurred. Records in the new system begin in June of 2015.</div>
+
+<p>Last Update of Dataset 02/04/2018</p>
+
+<p>Data Provided under Open Data Commons Public Domain Dedication and License (PDDL).</p>
+
+<p>Simple complete case matching is done to remove any empty variables. Data is split into two chunks 2016-17 and 2017-18.</p>
+
+<h2 id="crime-density-map">Crime Density Map</h2>
+
+<p>First I went about with the geospatial visualisation. I utilised the ggmap library to pull a roadmap from Google Maps. This was later overlaid with multiple grammar of graphics layers for density gradient and more. Here’s a code snippet.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interestedregion</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggmap</span><span class="p">(</span><span class="n">bostonmap</span><span class="p">)</span><span class="o">+</span><span class="w">
+  </span><span class="c1">#Create the density plots for crime regions. Bin size is responsible for resolution</span><span class="w">
+  </span><span class="n">stat_density2d</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lastyear</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">lastyear</span><span class="o">$</span><span class="n">Long</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">lastyear</span><span class="o">$</span><span class="n">Lat</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="n">..level..</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="n">..level..</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="o">=</span><span class="m">15</span><span class="p">,</span><span class="n">geom</span><span class="o">=</span><span class="s1">'polygon'</span><span class="p">)</span><span class="o">+</span><span class="w">
+  </span><span class="c1">#Crime Density scale in range of dark magenta to orange to denote intensity. Use any color combination that makes sense</span><span class="w">
+  </span><span class="n">scale_fill_gradient</span><span class="p">(</span><span class="s1">'Crime\nDensity'</span><span class="p">,</span><span class="w"> </span><span class="n">low</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'darkmagenta'</span><span class="p">,</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'gold'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="c1">#Populate map with the density color scheme</span><span class="w">
+  </span><span class="n">scale_alpha</span><span class="p">(</span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">.2</span><span class="p">,</span><span class="w"> </span><span class="m">.3</span><span class="p">),</span><span class="w"> </span><span class="n">guide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="o">+</span><span class="w">
+  </span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guide_colorbar</span><span class="p">(</span><span class="n">barwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">barheight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="c1">#Remove the axes titles long and lat</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element_blank</span><span class="p">(),</span><span class="w"> </span><span class="n">axis.title.x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element_blank</span><span class="p">())</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ggtitle</span><span class="p">(</span><span class="s2">"Boston Crime February 2017 - February 2018"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/36330214-d1dc9344-1336-11e8-9b17-cb1a66cdea23.jpeg" alt="alt tag" /></p>
+
+<p>This map shows the crime density in Boston for a period of one year from February 2017 to February 2018.</p>
+
+<h2 id="crime-statistics-districtwise">Crime Statistics Districtwise</h2>
+
+<p>Next, I tackled simple statistics on the crime data and utilised barplot modeling on the frequency of crimes committed districtwise.
+A minimalisitic theme is applied to make the barplots look nice. Here’s the function I wrote to extract barplots.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plotter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">){</span><span class="w">
+  </span><span class="c1">#Plot the Barplot for the table created.</span><span class="w">
+  </span><span class="n">plotout</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">District</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="m">2</span><span class="p">],</span><span class="n">fill</span><span class="o">=</span><span class="n">District</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+    </span><span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"identity"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+    </span><span class="c1">#applies a minimalistic theme</span><span class="w">
+    </span><span class="n">theme_minimal</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+    </span><span class="n">ggtitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="w">
+  </span><span class="nf">return</span><span class="p">(</span><span class="n">plotout</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>First we generate a plot for the 16-17 year</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/36330202-c209c126-1336-11e8-81ac-41a0234bc28b.jpeg" alt="alt tag" /></p>
+
+<p>Then we do the same for the 17-18 year.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/36330213-d1d155a6-1336-11e8-8536-bf77e99450e5.jpeg" alt="alt tag" /></p>
+
+<p>Now we can compare the percentage change between the two years and find out how much incidents of crime have changed</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/36330215-d1e90052-1336-11e8-8052-07571a413c82.jpeg" alt="alt tag" /></p>
+
+<h2 id="future">Future</h2>
+
+<p>Will be working on a neural network to predict hotspots for the upcoming months. Will be interesting to see if that actually happens IRL. Leave your comments or feel free to contact me with suggestions.</p>
+
+<h2 id="license">License</h2>
+
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<ul>
+  <li>
+    <p>R Core Team (2013). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  URL http://www.R-project.org/.</p>
+  </li>
+  <li>
+    <p>R Packages used : Plyr, ggmap, ggplot2, lubridate</p>
+  </li>
+</ul>
+
+      <div class="backnext btnbottom">
+                <div class="back">
+        <div class="bpointer"><a href="/works/"
+         class="button small" title="Back">Index</a></div>
+         <!-- class="icon fa-backward" title="Back"></a></div> -->
+        <div class="btitle"><a href="/works/">Works Index</a></div>
+        </div>
+        <div class="next">
+        <div class="npointer"><a href="/works/"
+         class="button small" title="Next">Index</a></div>
+         <!-- class="icon fa-forward" title="Next"></a></div> -->
+        <div class="ntitle"><a href="/works/">Works Index</a></div>
+        </div>
+
+      </div>
+      <script>
+      document.body.onkeyup = function(e){
+        if (e.keyCode == '37') { window.location = '/works/'; }
+        if (e.keyCode == '39') { window.location = '/works/'; }
+      };
+      </script>
+
+  
+    </div>
+  </section>
+
+
+      </article>
+
+      <!-- Footer -->
+<footer id="footer">
+  <ul class="icons">
+    <li><a target="_blank" href="https://twitter.com/trichyflight" class="icon fa-twitter"
+           ><span class="label">twitter</span></a></li>
+    <li><a target="_blank" href="https://github.com/niki864" class="icon fa-github"
+           ><span class="label">github</span></a></li>
+    <li><a target="_blank" href="https://linkedin.com/in/nikileshk" class="icon fa-linkedin-square"
+           ><span class="label">linkedin-square</span></a></li>
+    <li><a target="_blank" href="https://www.facebook.com/nikilesh95" class="icon fa-facebook-official"
+           ><span class="label">facebook-official</span></a></li>
+    <li><a target="_blank" href="/contact/" class="icon fa-envelope"
+           ><span class="label">E-mail</span></a></li>
+    <li><a target="_blank" href="https://www.instagram.com/nikileshk/" class="icon fa-instagram"
+           ><span class="label">instagram</span></a></li>
+  </ul>
+  <ul class="copyright">
+    <li>&copy; 
+    2018
+      Nikilesh Kumar</li>
+    <li><a href="/credits/">Credits</a></li>
+  </ul>
+</footer>
+
+
+      <!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+<script src="/js/main.js"></script>
+
+    </div>
+
+  </body>
+
+</html>
