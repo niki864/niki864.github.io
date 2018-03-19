@@ -5,8 +5,8 @@
     <description>Data Science &amp;#x2192; Modern Story Telling</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Mar 2018 14:46:32 -0400</pubDate>
-    <lastBuildDate>Mon, 19 Mar 2018 14:46:32 -0400</lastBuildDate>
+    <pubDate>Mon, 19 Mar 2018 18:32:15 -0400</pubDate>
+    <lastBuildDate>Mon, 19 Mar 2018 18:32:15 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -121,6 +121,66 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
         <category>lubridate</category>
         
         <category>dplyr</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
+      <item>
+        <title>NIT - Trichy Thesis Template</title>
+        <description>&lt;h2 id=&quot;thesis-template&quot;&gt;Thesis Template&lt;/h2&gt;
+
+&lt;p&gt;B.Tech Thesis Template for NIT-Trichy students&lt;/p&gt;
+
+&lt;p&gt;So I created this thesis template in LaTeX as I thought formatting in Word was such a pain. Besides, LaTeX allowed me to just focus on the content and not bother about the formatting as it was all pre-defined rules. This template was created for the use of B.Tech students at the National Institute of Technology - Tiruchirappalli. I think the code is well commented and ensures that a person new to Latex will be able to modify it to suit their needs. It follows the latest thesis guidelines as specified for 2016-2017. I appreciate any comments and feedback regarding this.&lt;/p&gt;
+
+&lt;h2 id=&quot;instructions&quot;&gt;Instructions&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you’re new to latex start off with main.tex and follow the comments.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.overleaf.com/latex/templates/nit-trichy-btech-thesis-template/cywtdmqjjmgr&quot;&gt;This&lt;/a&gt; is the overleaf link if you want to edit it online. I recommend overleaf as they have side-by-side viewer which shows you what’s going on in real time. Currently my template is tracking over 2500 views!!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;p&gt;Here are some features of this LaTeX template.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Table of Contents autofills.&lt;/li&gt;
+  &lt;li&gt;Images and tables are tracked and List of figures and tables autofills.&lt;/li&gt;
+  &lt;li&gt;Code can be added with syntax highlighting.&lt;/li&gt;
+  &lt;li&gt;Reference section included.&lt;/li&gt;
+  &lt;li&gt;Follows the thesis guidelines given by NITT like font size and spacing.&lt;/li&gt;
+  &lt;li&gt;Complex equations can be added easily with numbering.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;screenshots&quot;&gt;Screenshots&lt;/h2&gt;
+
+&lt;p&gt;Here’s how a few sample pages look like.&lt;/p&gt;
+
+&lt;h3 id=&quot;cover-page&quot;&gt;Cover Page&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625799-bb214476-2ba3-11e8-9150-486c4a1d7bc9.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sample-of-how-equations-are-fomatted&quot;&gt;Sample of How Equations Are Fomatted&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625800-bb2d2ffc-2ba3-11e8-9005-1f94a679f37c.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sample-of-embedding-images&quot;&gt;Sample of Embedding Images&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625801-bb3d2df8-2ba3-11e8-8d50-c0f131b8948c.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;future&quot;&gt;Future&lt;/h2&gt;
+
+&lt;p&gt;If you would like to build on this (in case college changes the template rubric) go ahead and clone this repo and make your changes.&lt;/p&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;This project is licensed under the MIT License - see the &lt;a href=&quot;LICENSE&quot;&gt;LICENSE&lt;/a&gt; file for details&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/works/works-NITTrichyTemplate.html</link>
+        <guid isPermaLink="true">http://localhost:4000/works/works-NITTrichyTemplate.html</guid>
+        
+        <category>LaTeX</category>
+        
+        <category>XML</category>
         
         
         <category>works</category>

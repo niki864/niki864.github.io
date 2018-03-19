@@ -3,7 +3,7 @@ priority: 0.9
 title: Boston Crime 
 excerpt: Analysis and mapping of crime in the Boston area
 categories: works
-background-image: boston-crime.jpg
+background-image: bostoncrimeds.png
 tags:
   - RStudio
   - ggplot
