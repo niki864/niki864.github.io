@@ -2813,7 +2813,7 @@ body.is-menu-visible #menu {
               background-repeat: no-repeat;
               content: '';
               display: inline-block;
-              height: 3.75em;
+              height: 3.25em;
               vertical-align: top;
               width: 2em; }
             @media screen and (max-width: 736px) {
