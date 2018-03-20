@@ -12,7 +12,7 @@
 
 # Site settings
 title: Nikilesh Kumar
-description: Data Science &#x2192; Modern Story Telling
+description: Data Enthusiast &#x2192; 21st Century Story-Teller
 owner:
   name: Nikilesh Kumar # or company name
   email: kumar.ni@husky.neu.edu
@@ -91,6 +91,8 @@ works_in_progress: yes
 # If you have custom extensions, specifically includes/_my/custom.scss,
 # set this to yes
 custom_extensions: no
+
+
 
 # Build settings
 permalink: /:categories/:title.html

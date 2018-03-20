@@ -11,6 +11,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact</title>
+  <link rel="icon"  type="image/png"    href="/images/logo.png">
   <meta name="description" content="Get in touch">
   <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
   <link rel="canonical" href="http://localhost:4000/contact/">
@@ -19,16 +20,16 @@
   <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
   <style>
   #main > header {
-    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/caustic_light.jpg");
-    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/caustic_light.jpg");
-    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/caustic_light.jpg");
-    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/caustic_light.jpg");
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/chinatownsg_RR.png");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/chinatownsg_RR.png");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/chinatownsg_RR.png");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/chinatownsg_RR.png");
   }
   </style>
   <!--[if lte IE 9]>
   <style>
   #main > header {
-    background-image: url("/images/caustic_light.jpg");
+    background-image: url("/images/chinatownsg_RR.png");
   }
   </style>
   -->
@@ -80,35 +81,7 @@
           <section class="wrapper style5">
     <div class="inner">
       <section>
-  <form id="sendemail" method="post" action="">
-    <div class="row uniform">
-      <div class="6u 12u$(xsmall)">
-        <input type="text" name="name" id="name" value="" placeholder="Name" />
-      </div>
-      <div class="6u$ 12u$(xsmall)">
-        <input required type="email" name="email" id="email" value="" placeholder="Email" />
-      </div>
-      <div class="12u$">
-        <input required type="text" minlength="2" name="subject" id="subject" value="" placeholder="Subject" />
-      </div>
-      <div class="12u$">
-        <textarea required name="textbody" id="textbody" placeholder="Type your message" rows="6"></textarea>
-      </div>
-      <div class="6u$ 12u$(xsmall)">
-        <img src=""/><br />
-        <input required type="text" name="captcha" id="captcha" placeholder="Type the numbers you see" />
-      </div>
-      <div class="12u$">
-        <ul class="actions">
-          <li><input type="submit" value="Send Message" class="special" /></li>
-        </ul>
-      </div>
-    </div>
-    <input type="hidden" name="success"
-           value="http://localhost:4000/contact-success" />
-    <input type="hidden" name="failure"
-           value="http://localhost:4000/contact-failure" />
-  </form>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeTs9cI94-t8h1tD_GxrzOYHJ1DG9aRHyGtliv7Dpibhpxn-A/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 </section>
 
     </div>
@@ -150,12 +123,6 @@
 <script src="/js/util.js"></script>
 <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
 <script src="/js/main.js"></script>
-<script src="/js/jquery.validate.min.js"></script>
-<script>
-$("#sendemail").validate();
-
-</script>
-
 
     </div>
 
