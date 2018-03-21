@@ -1,5 +1,5 @@
 ---
-priority: 0.9
+priority: 0.7
 title: NIT - Trichy Thesis Template
 excerpt: A LaTeX template for the 2016-17 b.tech thesis 
 categories: works

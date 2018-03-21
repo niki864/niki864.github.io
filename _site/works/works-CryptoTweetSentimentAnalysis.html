@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP
+    html5up.net
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Jekyll build mod and further hacks by @arkadianriver, MIT license
+-->
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sentiment Analysis of Cryptocurrency Tweets</title>
+  <link rel="icon"  type="image/png"    href="/images/logo.png">
+  <meta name="description" content="A simple sentiment analyser for tweets related to cryptocurrencies">
+  <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="canonical" href="http://localhost:4000/works/works-CryptoTweetSentimentAnalysis.html">
+  <link rel="stylesheet" href="/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+  <style>
+  #main > header {
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/bitcoin.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/bitcoin.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/bitcoin.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/bitcoin.jpg");
+  }
+  </style>
+  <!--[if lte IE 9]>
+  <style>
+  #main > header {
+    background-image: url("/images/bitcoin.jpg");
+  }
+  </style>
+  -->
+  <link rel="alternate" type="application/rss+xml" title="Nikilesh Kumar" href="http://localhost:4000/feed.xml">
+</head>
+
+
+  <body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+<header id="header">
+  <h1><a href="/index.html">Nikilesh Kumar</a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="special">
+        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+        <div id="menu">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/works/">Works</a></li>
+            <li><a href="/topics/">Topics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/resume.pdf"> Resume </a></li>
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+      <article id="main">
+
+          <header>
+    <h2>Sentiment Analysis of Cryptocurrency Tweets</h2>
+    <p>A simple sentiment analyser for tweets related to cryptocurrencies</p>
+  </header>
+  <ul class="breadcrumb">
+  <li><a href="/index.html">Home</a></li>
+  <li style="text-transform: capitalize;"><a href="/works">works</a></li>
+  <li>Sentiment Analysis of Cryptocurrency Tweets</li>
+</ul>
+
+
+
+          <section class="wrapper style5">
+    <div class="inner">
+      <span id="post-date">19 December 2017</span><hr
+        style="margin-top:3px;" />
+      <h4>Skills</h4>
+  <ul class="techlist">
+<li><span class="tech">RStudio</span></li>
+<li><span class="tech">TwitteR</span></li>
+<li><span class="tech">Plyr</span></li>
+<li><span class="tech">ggplot2</span></li>
+</ul>
+
+  
+
+      <h1 id="sentiment-analysis-of-tweets-related-to-cryptocurrencies">Sentiment Analysis of Tweets Related to Cryptocurrencies</h1>
+
+<p>I built a simple sentiment analyser that pulls tweets from Twitter and assigns it a sentiment score. Created this during the crypto hype of 2017 Aug-Dec where volatility was excessive and nearly everyone on social media became a self professed cryptocurrency expert. I thought it might be interesting to see what it is that they are actually saying (and hopefully make use of that for my personal portfolio :P)</p>
+
+<h2 id="packages-required">Packages Required</h2>
+
+<p>TwitteR, plyr, stringr, ggplot2, downloadable from CRAN</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>R and R Studio</p>
+
+<h2 id="dataset-description">Dataset Description</h2>
+
+<p>All of this data is aggregated from Twitter using the TwitteR search api call. 
+Here we search for the term “#Cryptocurrency” and look for the most recent 1500 tweets.(Unfortunately, that is Twitter’s max. free limit)
+This is raw tweet data as provided by the returned Json file.</p>
+
+<p>After aggregating this data, data cleaning is done to remove repeat tweets, unnecessary characters, numbers, non-english words, twitter symbols like @ RT and # to get raw text of tweets. That removes around 35-40% of the data. So we effectively have around 800-900 tweets to work with.
+I used simple Regex rules based matching to clean data.</p>
+
+<h2 id="sentiment-analyser-description">Sentiment Analyser Description</h2>
+
+<p>This is a simple analyser function that increments or decrements points to a sentence based on words in the sentence that are matched to a positive or negative word list. It’s not a very elegant implementation but it gets the job done.</p>
+
+<p>This follows the tutorial at http://jeffreybreen.wordpress.com/2011/07/04/twitter-text-mining-r-slides/</p>
+
+<p>The scores are then stored and used to generate graph plots based on sentiment score.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Here ares some histogram models generated using ggplot based on the sentiment score of the overall dataset.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/34191361-5422d620-e514-11e7-9681-c36ce0085d80.jpeg" alt="alt tag" /></p>
+
+<p>After which, I applied the same logic for the search term #Bitcoin alone
+Then we do the same for the term Bitcoin alone.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/34191362-5443caf6-e514-11e7-93a0-4ac6148bfa59.jpeg" alt="alt tag" /></p>
+
+<p>Likewise for Ethereum</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/34191363-5466418a-e514-11e7-95d3-33919e847b8c.jpeg" alt="alt tag" /></p>
+
+<p>Likewise for Litecoin</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/34191364-5499741a-e514-11e7-8c90-c5fe4be3f759.jpeg" alt="alt tag" /></p>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>Contact me for any feedback regarding this project. Always eager to hear from fellow data enthusiasts.</p>
+
+<h2 id="license">License</h2>
+
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<ul>
+  <li>https://github.com/benmarwick/AAA2011-Tweets</li>
+</ul>
+
+      <div class="backnext btnbottom">
+                <div class="back">
+        <div class="bpointer"><a href="/works/works-bostoncrime.html"
+         class="button small" title="Back">&lt; Back</a></div>
+         <!-- class="icon fa-backward" title="Back"></a></div> -->
+        <div class="btitle"><a href="/works/works-bostoncrime.html">Boston Crime</a></div>
+        </div>
+        <div class="next">
+        <div class="npointer"><a href="/works/works-NITTrichyTemplate.html"
+         class="button small" title="Next">Next &gt;</a></div>
+         <!-- class="icon fa-forward" title="Next"></a></div> -->
+        <div class="ntitle"><a href="/works/works-NITTrichyTemplate.html">NIT - Trichy Thesis Template</a></div>
+        </div>
+
+      </div>
+      <script>
+      document.body.onkeyup = function(e){
+        if (e.keyCode == '37') { window.location = '/works/works-bostoncrime.html'; }
+        if (e.keyCode == '39') { window.location = '/works/works-NITTrichyTemplate.html'; }
+      };
+      </script>
+
+  
+    </div>
+  </section>
+
+
+      </article>
+
+      <!-- Footer -->
+<footer id="footer">
+  <ul class="icons">
+    <li><a target="_blank" href="https://twitter.com/trichyflight" class="icon fa-twitter"
+           ><span class="label">twitter</span></a></li>
+    <li><a target="_blank" href="https://github.com/niki864" class="icon fa-github"
+           ><span class="label">github</span></a></li>
+    <li><a target="_blank" href="https://linkedin.com/in/nikileshk" class="icon fa-linkedin-square"
+           ><span class="label">linkedin-square</span></a></li>
+    <li><a target="_blank" href="https://www.facebook.com/nikilesh95" class="icon fa-facebook-official"
+           ><span class="label">facebook-official</span></a></li>
+    <li><a target="_blank" href="/contact/" class="icon fa-envelope"
+           ><span class="label">E-mail</span></a></li>
+    <li><a target="_blank" href="https://www.instagram.com/nikileshk/" class="icon fa-instagram"
+           ><span class="label">instagram</span></a></li>
+  </ul>
+  <ul class="copyright">
+    <li>&copy; 
+    2018
+      Nikilesh Kumar</li>
+    <li><a href="/credits/">Credits</a></li>
+  </ul>
+</footer>
+
+
+      <!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+<script src="/js/main.js"></script>
+
+    </div>
+
+  </body>
+
+</html>

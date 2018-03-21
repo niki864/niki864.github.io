@@ -5,8 +5,8 @@
     <description>Data Enthusiast &amp;#x2192; 21st Century Story-Teller</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Mar 2018 19:35:50 -0400</pubDate>
-    <lastBuildDate>Tue, 20 Mar 2018 19:35:50 -0400</lastBuildDate>
+    <pubDate>Wed, 21 Mar 2018 13:25:41 -0400</pubDate>
+    <lastBuildDate>Wed, 21 Mar 2018 13:25:41 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -121,6 +121,87 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
         <category>lubridate</category>
         
         <category>dplyr</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
+      <item>
+        <title>Sentiment Analysis of Cryptocurrency Tweets</title>
+        <description>&lt;h1 id=&quot;sentiment-analysis-of-tweets-related-to-cryptocurrencies&quot;&gt;Sentiment Analysis of Tweets Related to Cryptocurrencies&lt;/h1&gt;
+
+&lt;p&gt;I built a simple sentiment analyser that pulls tweets from Twitter and assigns it a sentiment score. Created this during the crypto hype of 2017 Aug-Dec where volatility was excessive and nearly everyone on social media became a self professed cryptocurrency expert. I thought it might be interesting to see what it is that they are actually saying (and hopefully make use of that for my personal portfolio :P)&lt;/p&gt;
+
+&lt;h2 id=&quot;packages-required&quot;&gt;Packages Required&lt;/h2&gt;
+
+&lt;p&gt;TwitteR, plyr, stringr, ggplot2, downloadable from CRAN&lt;/p&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;R and R Studio&lt;/p&gt;
+
+&lt;h2 id=&quot;dataset-description&quot;&gt;Dataset Description&lt;/h2&gt;
+
+&lt;p&gt;All of this data is aggregated from Twitter using the TwitteR search api call. 
+Here we search for the term “#Cryptocurrency” and look for the most recent 1500 tweets.(Unfortunately, that is Twitter’s max. free limit)
+This is raw tweet data as provided by the returned Json file.&lt;/p&gt;
+
+&lt;p&gt;After aggregating this data, data cleaning is done to remove repeat tweets, unnecessary characters, numbers, non-english words, twitter symbols like @ RT and # to get raw text of tweets. That removes around 35-40% of the data. So we effectively have around 800-900 tweets to work with.
+I used simple Regex rules based matching to clean data.&lt;/p&gt;
+
+&lt;h2 id=&quot;sentiment-analyser-description&quot;&gt;Sentiment Analyser Description&lt;/h2&gt;
+
+&lt;p&gt;This is a simple analyser function that increments or decrements points to a sentence based on words in the sentence that are matched to a positive or negative word list. It’s not a very elegant implementation but it gets the job done.&lt;/p&gt;
+
+&lt;p&gt;This follows the tutorial at http://jeffreybreen.wordpress.com/2011/07/04/twitter-text-mining-r-slides/&lt;/p&gt;
+
+&lt;p&gt;The scores are then stored and used to generate graph plots based on sentiment score.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Here ares some histogram models generated using ggplot based on the sentiment score of the overall dataset.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191361-5422d620-e514-11e7-9681-c36ce0085d80.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After which, I applied the same logic for the search term #Bitcoin alone
+Then we do the same for the term Bitcoin alone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191362-5443caf6-e514-11e7-93a0-4ac6148bfa59.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Likewise for Ethereum&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191363-5466418a-e514-11e7-95d3-33919e847b8c.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Likewise for Litecoin&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191364-5499741a-e514-11e7-8c90-c5fe4be3f759.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;Contact me for any feedback regarding this project. Always eager to hear from fellow data enthusiasts.&lt;/p&gt;
+
+&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;This project is licensed under the MIT License - see the &lt;a href=&quot;LICENSE.md&quot;&gt;LICENSE.md&lt;/a&gt; file for details&lt;/p&gt;
+
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://github.com/benmarwick/AAA2011-Tweets&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 19 Dec 2017 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/works/works-CryptoTweetSentimentAnalysis.html</link>
+        <guid isPermaLink="true">http://localhost:4000/works/works-CryptoTweetSentimentAnalysis.html</guid>
+        
+        <category>RStudio</category>
+        
+        <category>TwitteR</category>
+        
+        <category>Plyr</category>
+        
+        <category>ggplot2</category>
         
         
         <category>works</category>
