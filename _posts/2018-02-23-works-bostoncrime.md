@@ -14,7 +14,7 @@ tags:
 
 ## Crime Statistics Description
 
-<div style="text-align: justify">Analysed the crime data provided by https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system to visualise and identify crime hotspots.
+<div style="text-align: justify">Analysed the crime data provided by [https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system](https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system) to visualise and identify crime hotspots.
 I first generated a crime heatmap based on reported locations of crime. 
 Then, I thought it would be interesting to see the change in crime over a period of two years. 
 I analysed the crime data, grouped it by district to actually see pct change in crime across two years.</div>
@@ -94,9 +94,9 @@ Now we can compare the percentage change between the two years and find out how 
 
 Will be working on a neural network to predict hotspots for the upcoming months. Will be interesting to see if that actually happens IRL. Leave your comments or feel free to contact me with suggestions.
 
-## License
+## Codebase and License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Here's the full github repo for [this project](https://github.com/niki864/BostonCrime). This project is licensed under the MIT License - see the *LICENSE.md* file located in my github repo for more details.
 
 ## Acknowledgments
 

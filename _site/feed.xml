@@ -5,15 +5,15 @@
     <description>Data Enthusiast &amp;#x2192; 21st Century Story-Teller</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Mar 2018 13:25:41 -0400</pubDate>
-    <lastBuildDate>Wed, 21 Mar 2018 13:25:41 -0400</lastBuildDate>
+    <pubDate>Wed, 21 Mar 2018 17:34:18 -0400</pubDate>
+    <lastBuildDate>Wed, 21 Mar 2018 17:34:18 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
         <title>Boston Crime</title>
         <description>&lt;h2 id=&quot;crime-statistics-description&quot;&gt;Crime Statistics Description&lt;/h2&gt;
 
-&lt;div style=&quot;text-align: justify&quot;&gt;Analysed the crime data provided by https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system to visualise and identify crime hotspots.
+&lt;div style=&quot;text-align: justify&quot;&gt;Analysed the crime data provided by [https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system](https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system) to visualise and identify crime hotspots.
 I first generated a crime heatmap based on reported locations of crime. 
 Then, I thought it would be interesting to see the change in crime over a period of two years. 
 I analysed the crime data, grouped it by district to actually see pct change in crime across two years.&lt;/div&gt;
@@ -91,9 +91,9 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
 
 &lt;p&gt;Will be working on a neural network to predict hotspots for the upcoming months. Will be interesting to see if that actually happens IRL. Leave your comments or feel free to contact me with suggestions.&lt;/p&gt;
 
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+&lt;h2 id=&quot;codebase-and-license&quot;&gt;Codebase and License&lt;/h2&gt;
 
-&lt;p&gt;This project is licensed under the MIT License - see the &lt;a href=&quot;LICENSE.md&quot;&gt;LICENSE.md&lt;/a&gt; file for details&lt;/p&gt;
+&lt;p&gt;Here’s the full github repo for &lt;a href=&quot;https://github.com/niki864/BostonCrime&quot;&gt;this project&lt;/a&gt;. This project is licensed under the MIT License - see the &lt;em&gt;LICENSE.md&lt;/em&gt; file located in my github repo for more details.&lt;/p&gt;
 
 &lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
 
@@ -128,10 +128,76 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
       </item>
     
       <item>
-        <title>Sentiment Analysis of Cryptocurrency Tweets</title>
-        <description>&lt;h1 id=&quot;sentiment-analysis-of-tweets-related-to-cryptocurrencies&quot;&gt;Sentiment Analysis of Tweets Related to Cryptocurrencies&lt;/h1&gt;
+        <title>Volatility Analysis of Bitcoin</title>
+        <description>&lt;p&gt;A technical analysis of bitcoin price history over a period of one year done in the R language utilising the TTR package. This project was done in conjunction with the course IE 6200 : Probability and Statistics for Engineers @ Northeastern University.&lt;/p&gt;
 
-&lt;p&gt;I built a simple sentiment analyser that pulls tweets from Twitter and assigns it a sentiment score. Created this during the crypto hype of 2017 Aug-Dec where volatility was excessive and nearly everyone on social media became a self professed cryptocurrency expert. I thought it might be interesting to see what it is that they are actually saying (and hopefully make use of that for my personal portfolio :P)&lt;/p&gt;
+&lt;h2 id=&quot;packages-required&quot;&gt;Packages Required&lt;/h2&gt;
+
+&lt;p&gt;TTR, downloadable from CRAN&lt;/p&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;R and R Studio&lt;/p&gt;
+
+&lt;h2 id=&quot;base-dataset-description&quot;&gt;Base Dataset Description&lt;/h2&gt;
+
+&lt;p&gt;Dataset is an hourly time series data set with 8 Variables (Timestamp, Open, High, Low, Close, Volume (BTC), Volume (Currency), Weighted Price)
+Data gathered is averaged across six hour time interval between sampling, i.e. 0000-0600 hrs, 0600-1200 hrs, 1200-1800 hrs to 1800-2400 hrs.&lt;/p&gt;
+
+&lt;p&gt;Base descriptive stats are provided.&lt;/p&gt;
+
+&lt;p&gt;Source: &lt;em&gt;bitcoincharts.com&lt;/em&gt;(https://bitcoincharts.com)&lt;/p&gt;
+
+&lt;h2 id=&quot;data-analysis-description&quot;&gt;Data Analysis Description&lt;/h2&gt;
+
+&lt;p&gt;We first generate Bollinger Bands with a SMA of 28 samples ( 28/4 - Weekly Moving Average equivalent) and obtain pctB values. 
+pctB is the percentage of Bitcoin price to the range between the up and lower band. 
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37727316-e5c0a436-2d0d-11e8-8239-81f3aae6d6f7.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a measure called pctB. This basically charts the degree of volatility between the current price and the moving average. Using pctB we can scale it to an index measure by taking the absolute value and converting it into percentage points on scale 100.
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37727315-e5b2d374-2d0d-11e8-8096-2d396a19a25d.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The final graph is generated on the basis of a volatility index, I’ll call it Vindex. This shows the days in the year where volatility has been excessive. We can infer that on these days, the price has exhibited massive change.
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37727313-e5007a3a-2d0d-11e8-80a1-85a5cab27129.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Spikes in graph correlate to significant days in which volatility has exceeded moving average by a large margin.&lt;/p&gt;
+
+&lt;h2 id=&quot;codebase-and-license&quot;&gt;Codebase and License&lt;/h2&gt;
+
+&lt;p&gt;Here’s the full github repo for &lt;a href=&quot;https://github.com/niki864/VolatilityAnalysisBitcoin&quot;&gt;this project&lt;/a&gt;. This project is licensed under the MIT License - see the &lt;em&gt;LICENSE.md&lt;/em&gt; file in the repo for more details.&lt;/p&gt;
+
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;IE 6200 :Probability and Statistics Course @Northeastern University : Prof. Dehghani&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;Contact me for any feedback regarding this project. Always eager to hear from fellow data enthusiasts.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Dec 2017 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/works/works-CryptoVolatilityAnalysis.html</link>
+        <guid isPermaLink="true">http://localhost:4000/works/works-CryptoVolatilityAnalysis.html</guid>
+        
+        <category>RStudio</category>
+        
+        <category>TTR</category>
+        
+        <category>ggplot2</category>
+        
+        
+        <category>works</category>
+        
+      </item>
+    
+      <item>
+        <title>Sentiment Analysis of Cryptocurrency Tweets</title>
+        <description>&lt;h2 id=&quot;sentiment-analysis-of-tweets-related-to-cryptocurrencies&quot;&gt;Sentiment Analysis of Tweets Related to Cryptocurrencies&lt;/h2&gt;
+
+&lt;div style=&quot;text-align: justify&quot;&gt;I built a simple sentiment analyser that pulls tweets from Twitter and assigns it a sentiment score. Created this during the crypto hype of 2017 Aug-Dec where volatility was excessive and nearly everyone on social media became a self professed cryptocurrency expert. I thought it might be interesting to see what it is that they are actually saying (and hopefully make use of that for my personal portfolio :P) &lt;/div&gt;
 
 &lt;h2 id=&quot;packages-required&quot;&gt;Packages Required&lt;/h2&gt;
 
@@ -147,12 +213,12 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
 Here we search for the term “#Cryptocurrency” and look for the most recent 1500 tweets.(Unfortunately, that is Twitter’s max. free limit)
 This is raw tweet data as provided by the returned Json file.&lt;/p&gt;
 
-&lt;p&gt;After aggregating this data, data cleaning is done to remove repeat tweets, unnecessary characters, numbers, non-english words, twitter symbols like @ RT and # to get raw text of tweets. That removes around 35-40% of the data. So we effectively have around 800-900 tweets to work with.
-I used simple Regex rules based matching to clean data.&lt;/p&gt;
+&lt;div style=&quot;text-align: justify&quot;&gt;After aggregating this data, data cleaning is done to remove repeat tweets, unnecessary characters, numbers, non-english words, twitter symbols like @ RT and # to get raw text of tweets. That removes around 35-40% of the data. So we effectively have around 800-900 tweets to work with.
+I used simple Regex rules based matching to clean data.&lt;/div&gt;
 
 &lt;h2 id=&quot;sentiment-analyser-description&quot;&gt;Sentiment Analyser Description&lt;/h2&gt;
 
-&lt;p&gt;This is a simple analyser function that increments or decrements points to a sentence based on words in the sentence that are matched to a positive or negative word list. It’s not a very elegant implementation but it gets the job done.&lt;/p&gt;
+&lt;div style=&quot;text-align: justify&quot;&gt;This is a simple analyser function that increments or decrements points to a sentence based on words in the sentence that are matched to a positive or negative word list. It's not a very elegant implementation but it gets the job done.&lt;/div&gt;
 
 &lt;p&gt;This follows the tutorial at http://jeffreybreen.wordpress.com/2011/07/04/twitter-text-mining-r-slides/&lt;/p&gt;
 
@@ -160,30 +226,26 @@ I used simple Regex rules based matching to clean data.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
-&lt;p&gt;Here ares some histogram models generated using ggplot based on the sentiment score of the overall dataset.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191361-5422d620-e514-11e7-9681-c36ce0085d80.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Here ares some histogram models generated using ggplot based on the sentiment score of the overall dataset.
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191361-5422d620-e514-11e7-9681-c36ce0085d80.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;After which, I applied the same logic for the search term #Bitcoin alone
-Then we do the same for the term Bitcoin alone.&lt;/p&gt;
+Then we do the same for the term Bitcoin alone.
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191362-5443caf6-e514-11e7-93a0-4ac6148bfa59.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191362-5443caf6-e514-11e7-93a0-4ac6148bfa59.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Likewise for Ethereum
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191363-5466418a-e514-11e7-95d3-33919e847b8c.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Likewise for Ethereum&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191363-5466418a-e514-11e7-95d3-33919e847b8c.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Likewise for Litecoin&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191364-5499741a-e514-11e7-8c90-c5fe4be3f759.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Likewise for Litecoin
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/34191364-5499741a-e514-11e7-8c90-c5fe4be3f759.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
 
 &lt;p&gt;Contact me for any feedback regarding this project. Always eager to hear from fellow data enthusiasts.&lt;/p&gt;
 
-&lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
+&lt;h2 id=&quot;codebase-and-license&quot;&gt;Codebase and License&lt;/h2&gt;
 
-&lt;p&gt;This project is licensed under the MIT License - see the &lt;a href=&quot;LICENSE.md&quot;&gt;LICENSE.md&lt;/a&gt; file for details&lt;/p&gt;
+&lt;p&gt;Here’s the full github repo for &lt;a href=&quot;https://github.com/niki864/CryptoTweetSentiment&quot;&gt;this project&lt;/a&gt;. This project is licensed under the MIT License - see the &lt;em&gt;LICENSE.md&lt;/em&gt; file in the repo for more details.&lt;/p&gt;
 
 &lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
 
@@ -214,7 +276,7 @@ Then we do the same for the term Bitcoin alone.&lt;/p&gt;
 
 &lt;p&gt;B.Tech Thesis Template for NIT-Trichy students&lt;/p&gt;
 
-&lt;p&gt;So I created this thesis template in LaTeX as I thought formatting in Word was such a pain. Besides, LaTeX allowed me to just focus on the content and not bother about the formatting as it was all pre-defined rules. This template was created for the use of B.Tech students at the National Institute of Technology - Tiruchirappalli. I think the code is well commented and ensures that a person new to Latex will be able to modify it to suit their needs. It follows the latest thesis guidelines as specified for 2016-2017. I appreciate any comments and feedback regarding this.&lt;/p&gt;
+&lt;div style=&quot;text-align: justify&quot;&gt;So I created this thesis template in LaTeX as I thought formatting in Word was such a pain. Besides, LaTeX allowed me to just focus on the content and not bother about the formatting as it was all pre-defined rules. This template was created for the use of B.Tech students at the National Institute of Technology - Tiruchirappalli. I think the code is well commented and ensures that a person new to Latex will be able to modify it to suit their needs. It follows the latest thesis guidelines as specified for 2016-2017. I appreciate any comments and feedback regarding this.&lt;/div&gt;
 
 &lt;h2 id=&quot;instructions&quot;&gt;Instructions&lt;/h2&gt;
 
@@ -241,19 +303,21 @@ Then we do the same for the term Bitcoin alone.&lt;/p&gt;
 &lt;p&gt;Here’s how a few sample pages look like.&lt;/p&gt;
 
 &lt;h3 id=&quot;cover-page&quot;&gt;Cover Page&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625799-bb214476-2ba3-11e8-9150-486c4a1d7bc9.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625799-bb214476-2ba3-11e8-9150-486c4a1d7bc9.png&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;sample-of-how-equations-are-fomatted&quot;&gt;Sample of How Equations Are Fomatted&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625800-bb2d2ffc-2ba3-11e8-9005-1f94a679f37c.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625800-bb2d2ffc-2ba3-11e8-9005-1f94a679f37c.png&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;sample-of-embedding-images&quot;&gt;Sample of Embedding Images&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625801-bb3d2df8-2ba3-11e8-8d50-c0f131b8948c.png&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/37625801-bb3d2df8-2ba3-11e8-8d50-c0f131b8948c.png&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;future&quot;&gt;Future&lt;/h2&gt;
 
-&lt;p&gt;If you would like to build on this (in case college changes the template rubric) go ahead and clone this repo and make your changes.&lt;/p&gt;
+&lt;p&gt;If you would like to build on this (in case college changes the template rubric) go ahead and clone this &lt;a href=&quot;https://github.com/niki864/ThesisTemplate&quot;&gt;repo&lt;/a&gt; and make your changes.&lt;/p&gt;
 
 &lt;h2 id=&quot;license&quot;&gt;License&lt;/h2&gt;
 
-&lt;p&gt;This project is licensed under the MIT License - see the &lt;a href=&quot;LICENSE&quot;&gt;LICENSE&lt;/a&gt; file for details&lt;/p&gt;
+&lt;p&gt;This project is licensed under the MIT License - see the &lt;em&gt;LICENSE.md&lt;/em&gt; file in my repo for more details.&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Apr 2017 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/works/works-NITTrichyTemplate.html</link>

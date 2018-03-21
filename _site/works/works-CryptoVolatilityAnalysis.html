@@ -10,11 +10,11 @@
   <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sentiment Analysis of Cryptocurrency Tweets</title>
+  <title>Volatility Analysis of Bitcoin</title>
   <link rel="icon"  type="image/png"    href="/images/logo.png">
-  <meta name="description" content="A simple sentiment analyser for tweets related to cryptocurrencies">
+  <meta name="description" content="Technical analysis of Bitcoin prices done in R">
   <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
-  <link rel="canonical" href="http://localhost:4000/works/works-CryptoTweetSentimentAnalysis.html">
+  <link rel="canonical" href="http://localhost:4000/works/works-CryptoVolatilityAnalysis.html">
   <link rel="stylesheet" href="/css/main.css" />
   <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
   <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
@@ -68,13 +68,13 @@
       <article id="main">
 
           <header>
-    <h2>Sentiment Analysis of Cryptocurrency Tweets</h2>
-    <p>A simple sentiment analyser for tweets related to cryptocurrencies</p>
+    <h2>Volatility Analysis of Bitcoin</h2>
+    <p>Technical analysis of Bitcoin prices done in R</p>
   </header>
   <ul class="breadcrumb">
   <li><a href="/index.html">Home</a></li>
   <li style="text-transform: capitalize;"><a href="/works">works</a></li>
-  <li>Sentiment Analysis of Cryptocurrency Tweets</li>
+  <li>Volatility Analysis of Bitcoin</li>
 </ul>
 
 
@@ -86,90 +86,80 @@
       <h4>Skills</h4>
   <ul class="techlist">
 <li><span class="tech">RStudio</span></li>
-<li><span class="tech">TwitteR</span></li>
-<li><span class="tech">Plyr</span></li>
+<li><span class="tech">TTR</span></li>
 <li><span class="tech">ggplot2</span></li>
 </ul>
 
   
 
-      <h2 id="sentiment-analysis-of-tweets-related-to-cryptocurrencies">Sentiment Analysis of Tweets Related to Cryptocurrencies</h2>
-
-<div style="text-align: justify">I built a simple sentiment analyser that pulls tweets from Twitter and assigns it a sentiment score. Created this during the crypto hype of 2017 Aug-Dec where volatility was excessive and nearly everyone on social media became a self professed cryptocurrency expert. I thought it might be interesting to see what it is that they are actually saying (and hopefully make use of that for my personal portfolio :P) </div>
+      <p>A technical analysis of bitcoin price history over a period of one year done in the R language utilising the TTR package. This project was done in conjunction with the course IE 6200 : Probability and Statistics for Engineers @ Northeastern University.</p>
 
 <h2 id="packages-required">Packages Required</h2>
 
-<p>TwitteR, plyr, stringr, ggplot2, downloadable from CRAN</p>
+<p>TTR, downloadable from CRAN</p>
 
 <h3 id="prerequisites">Prerequisites</h3>
 
 <p>R and R Studio</p>
 
-<h2 id="dataset-description">Dataset Description</h2>
+<h2 id="base-dataset-description">Base Dataset Description</h2>
 
-<p>All of this data is aggregated from Twitter using the TwitteR search api call. 
-Here we search for the term “#Cryptocurrency” and look for the most recent 1500 tweets.(Unfortunately, that is Twitter’s max. free limit)
-This is raw tweet data as provided by the returned Json file.</p>
+<p>Dataset is an hourly time series data set with 8 Variables (Timestamp, Open, High, Low, Close, Volume (BTC), Volume (Currency), Weighted Price)
+Data gathered is averaged across six hour time interval between sampling, i.e. 0000-0600 hrs, 0600-1200 hrs, 1200-1800 hrs to 1800-2400 hrs.</p>
 
-<div style="text-align: justify">After aggregating this data, data cleaning is done to remove repeat tweets, unnecessary characters, numbers, non-english words, twitter symbols like @ RT and # to get raw text of tweets. That removes around 35-40% of the data. So we effectively have around 800-900 tweets to work with.
-I used simple Regex rules based matching to clean data.</div>
+<p>Base descriptive stats are provided.</p>
 
-<h2 id="sentiment-analyser-description">Sentiment Analyser Description</h2>
+<p>Source: <em>bitcoincharts.com</em>(https://bitcoincharts.com)</p>
 
-<div style="text-align: justify">This is a simple analyser function that increments or decrements points to a sentence based on words in the sentence that are matched to a positive or negative word list. It's not a very elegant implementation but it gets the job done.</div>
+<h2 id="data-analysis-description">Data Analysis Description</h2>
 
-<p>This follows the tutorial at http://jeffreybreen.wordpress.com/2011/07/04/twitter-text-mining-r-slides/</p>
+<p>We first generate Bollinger Bands with a SMA of 28 samples ( 28/4 - Weekly Moving Average equivalent) and obtain pctB values. 
+pctB is the percentage of Bitcoin price to the range between the up and lower band. 
+<img src="https://user-images.githubusercontent.com/10093954/37727316-e5c0a436-2d0d-11e8-8239-81f3aae6d6f7.jpeg" alt="Drawing" style="width:100%;" /></p>
 
-<p>The scores are then stored and used to generate graph plots based on sentiment score.</p>
+<p>There is a measure called pctB. This basically charts the degree of volatility between the current price and the moving average. Using pctB we can scale it to an index measure by taking the absolute value and converting it into percentage points on scale 100.
+<img src="https://user-images.githubusercontent.com/10093954/37727315-e5b2d374-2d0d-11e8-8096-2d396a19a25d.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>The final graph is generated on the basis of a volatility index, I’ll call it Vindex. This shows the days in the year where volatility has been excessive. We can infer that on these days, the price has exhibited massive change.
+<img src="https://user-images.githubusercontent.com/10093954/37727313-e5007a3a-2d0d-11e8-80a1-85a5cab27129.jpeg" alt="Drawing" style="width:100%;" /></p>
 
 <h2 id="summary">Summary</h2>
 
-<p>Here ares some histogram models generated using ggplot based on the sentiment score of the overall dataset.
-<img src="https://user-images.githubusercontent.com/10093954/34191361-5422d620-e514-11e7-9681-c36ce0085d80.jpeg" alt="Drawing" style="width:100%;" /></p>
+<p>Spikes in graph correlate to significant days in which volatility has exceeded moving average by a large margin.</p>
 
-<p>After which, I applied the same logic for the search term #Bitcoin alone
-Then we do the same for the term Bitcoin alone.
-<img src="https://user-images.githubusercontent.com/10093954/34191362-5443caf6-e514-11e7-93a0-4ac6148bfa59.jpeg" alt="Drawing" style="width:100%;" /></p>
+<h2 id="codebase-and-license">Codebase and License</h2>
 
-<p>Likewise for Ethereum
-<img src="https://user-images.githubusercontent.com/10093954/34191363-5466418a-e514-11e7-95d3-33919e847b8c.jpeg" alt="Drawing" style="width:100%;" /></p>
+<p>Here’s the full github repo for <a href="https://github.com/niki864/VolatilityAnalysisBitcoin">this project</a>. This project is licensed under the MIT License - see the <em>LICENSE.md</em> file in the repo for more details.</p>
 
-<p>Likewise for Litecoin
-<img src="https://user-images.githubusercontent.com/10093954/34191364-5499741a-e514-11e7-8c90-c5fe4be3f759.jpeg" alt="Drawing" style="width:100%;" /></p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<ul>
+  <li>IE 6200 :Probability and Statistics Course @Northeastern University : Prof. Dehghani</li>
+</ul>
 
 <h2 id="feedback">Feedback</h2>
 
 <p>Contact me for any feedback regarding this project. Always eager to hear from fellow data enthusiasts.</p>
 
-<h2 id="codebase-and-license">Codebase and License</h2>
-
-<p>Here’s the full github repo for <a href="https://github.com/niki864/CryptoTweetSentiment">this project</a>. This project is licensed under the MIT License - see the <em>LICENSE.md</em> file in the repo for more details.</p>
-
-<h2 id="acknowledgments">Acknowledgments</h2>
-
-<ul>
-  <li>https://github.com/benmarwick/AAA2011-Tweets</li>
-</ul>
-
       <div class="backnext btnbottom">
                 <div class="back">
-        <div class="bpointer"><a href="/works/works-bostoncrime.html"
+        <div class="bpointer"><a href="/works/works-CryptoTweetSentimentAnalysis.html"
          class="button small" title="Back">&lt; Back</a></div>
          <!-- class="icon fa-backward" title="Back"></a></div> -->
-        <div class="btitle"><a href="/works/works-bostoncrime.html">Boston Crime</a></div>
+        <div class="btitle"><a href="/works/works-CryptoTweetSentimentAnalysis.html">Sentiment Analysis of Cryptocurrency Tweets</a></div>
         </div>
         <div class="next">
-        <div class="npointer"><a href="/works/works-CryptoVolatilityAnalysis.html"
+        <div class="npointer"><a href="/works/works-NITTrichyTemplate.html"
          class="button small" title="Next">Next &gt;</a></div>
          <!-- class="icon fa-forward" title="Next"></a></div> -->
-        <div class="ntitle"><a href="/works/works-CryptoVolatilityAnalysis.html">Volatility Analysis of Bitcoin</a></div>
+        <div class="ntitle"><a href="/works/works-NITTrichyTemplate.html">NIT - Trichy Thesis Template</a></div>
         </div>
 
       </div>
       <script>
       document.body.onkeyup = function(e){
-        if (e.keyCode == '37') { window.location = '/works/works-bostoncrime.html'; }
-        if (e.keyCode == '39') { window.location = '/works/works-CryptoVolatilityAnalysis.html'; }
+        if (e.keyCode == '37') { window.location = '/works/works-CryptoTweetSentimentAnalysis.html'; }
+        if (e.keyCode == '39') { window.location = '/works/works-NITTrichyTemplate.html'; }
       };
       </script>
 

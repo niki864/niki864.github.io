@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>http://localhost:4000/</loc>
-      <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+      <lastmod>2018-03-21T17:34:18-04:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
     </url>
@@ -11,6 +11,12 @@
         <lastmod>2018-02-23T00:00:00-05:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>http://localhost:4000/works/works-CryptoVolatilityAnalysis.html</loc>
+        <lastmod>2017-12-19T00:00:00-05:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
       <loc>http://localhost:4000/works/works-CryptoTweetSentimentAnalysis.html</loc>
@@ -26,43 +32,43 @@
     </url>
     <url>
       <loc>http://localhost:4000/contact-success/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/contact-success/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/contact/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/credits/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/topics/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
       <loc>http://localhost:4000/works/</loc>
-        <lastmod>2018-03-21T13:25:41-04:00</lastmod>
+        <lastmod>2018-03-21T17:34:18-04:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
