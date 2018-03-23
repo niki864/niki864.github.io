@@ -5,8 +5,8 @@
     <description>Data Enthusiast &amp;#x2192; 21st Century Story-Teller</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 23 Mar 2018 14:57:31 -0400</pubDate>
-    <lastBuildDate>Fri, 23 Mar 2018 14:57:31 -0400</lastBuildDate>
+    <pubDate>Fri, 23 Mar 2018 15:23:45 -0400</pubDate>
+    <lastBuildDate>Fri, 23 Mar 2018 15:23:45 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
     
       <item>
@@ -199,7 +199,7 @@ I analysed the crime data, grouped it by district to actually see pct change in 
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ggtitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Boston Crime February 2017 - February 2018&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330214-d1dc9344-1336-11e8-9b17-cb1a66cdea23.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330214-d1dc9344-1336-11e8-9b17-cb1a66cdea23.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This map shows the crime density in Boston for a period of one year from February 2017 to February 2018.&lt;/p&gt;
 
@@ -219,15 +219,15 @@ A minimalisitic theme is applied to make the barplots look nice. Here’s the fu
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;First we generate a plot for the 16-17 year&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330202-c209c126-1336-11e8-81ac-41a0234bc28b.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330202-c209c126-1336-11e8-81ac-41a0234bc28b.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then we do the same for the 17-18 year.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330213-d1d155a6-1336-11e8-8536-bf77e99450e5.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330213-d1d155a6-1336-11e8-8536-bf77e99450e5.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now we can compare the percentage change between the two years and find out how much incidents of crime have changed&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330215-d1e90052-1336-11e8-8052-07571a413c82.jpeg&quot; alt=&quot;alt tag&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/36330215-d1e90052-1336-11e8-8052-07571a413c82.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;future&quot;&gt;Future&lt;/h2&gt;
 
