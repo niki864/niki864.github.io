@@ -1,7 +1,7 @@
 # Google Rule
-User-agent: Googlebot-Image
-Disallow: /
+User-agent: Googlebot
+Allow: \ 
 
 User-agent: *
-Disallow: /images
+Allow: \
 Sitemap: http://niki864.github.io/sitemap.xml
