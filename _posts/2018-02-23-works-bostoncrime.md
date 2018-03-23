@@ -59,7 +59,8 @@ interestedregion <- ggmap(bostonmap)+
   ggtitle("Boston Crime February 2017 - February 2018")
 ```
 
-![alt tag](https://user-images.githubusercontent.com/10093954/36330214-d1dc9344-1336-11e8-9b17-cb1a66cdea23.jpeg)
+<img src="https://user-images.githubusercontent.com/10093954/36330214-d1dc9344-1336-11e8-9b17-cb1a66cdea23.jpeg" alt="Drawing" style="width:100%;"/>
+
 
 This map shows the crime density in Boston for a period of one year from February 2017 to February 2018. 
 
@@ -80,15 +81,19 @@ plotter <- function(dataset, title){
 ```
 First we generate a plot for the 16-17 year
 
-![alt tag](https://user-images.githubusercontent.com/10093954/36330202-c209c126-1336-11e8-81ac-41a0234bc28b.jpeg)
+<img src="https://user-images.githubusercontent.com/10093954/36330202-c209c126-1336-11e8-81ac-41a0234bc28b.jpeg" alt="Drawing" style="width:100%;"/>
+
 
 Then we do the same for the 17-18 year.
 
-![alt tag](https://user-images.githubusercontent.com/10093954/36330213-d1d155a6-1336-11e8-8536-bf77e99450e5.jpeg)
+<img src="https://user-images.githubusercontent.com/10093954/36330213-d1d155a6-1336-11e8-8536-bf77e99450e5.jpeg" alt="Drawing" style="width:100%;"/>
+
 
 Now we can compare the percentage change between the two years and find out how much incidents of crime have changed
 
-![alt tag](https://user-images.githubusercontent.com/10093954/36330215-d1e90052-1336-11e8-8052-07571a413c82.jpeg)
+<img src="https://user-images.githubusercontent.com/10093954/36330215-d1e90052-1336-11e8-8052-07571a413c82.jpeg" alt="Drawing" style="width:100%;"/>
+
+
 
 ## Future
 
