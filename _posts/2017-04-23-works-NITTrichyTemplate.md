@@ -18,7 +18,7 @@ B.Tech Thesis Template for NIT-Trichy students
 ## Instructions
 
 * If you're new to latex start off with main.tex and follow the comments.
-* [This](https://www.overleaf.com/latex/templates/nit-trichy-btech-thesis-template/cywtdmqjjmgr) is the overleaf link if you want to edit it online. I recommend overleaf as they have side-by-side viewer which shows you what's going on in real time. Currently my template is tracking over 2500 views!!
+* [This](https://www.overleaf.com/latex/templates/nit-trichy-btech-thesis-template/cywtdmqjjmgr) is the overleaf link if you want to edit it online. I recommend overleaf as they have side-by-side viewer which shows you what's going on in real time. Currently my template is tracking over 1500 views!!
 
 ## Features
 
