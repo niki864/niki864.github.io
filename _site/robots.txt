@@ -1,3 +1,7 @@
+# Google Rule
+User-agent: Googlebot
+Allow: \ 
+
 User-agent: *
-Disallow:
-Sitemap: http://www.arkadianriver.com/sitemap.xml
+Allow: \
+Sitemap: http://niki864.github.io/sitemap.xml
