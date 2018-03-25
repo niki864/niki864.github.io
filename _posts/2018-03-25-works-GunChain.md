@@ -14,9 +14,9 @@ tags:
 
 ## ChainGun - A conceptual blockchain network for gun ownership
 
-There's been a lot of talk about gun violence and calls for action against it in social media and through protests such as the __March For Our Lives__ movement and more. Hearing about it on a regular basis, I couldn't help but wonder if there was something that could be done to support this cause. 
+There's been a lot of talk about gun violence and calls for action against it in social media and through protests such as the __March For Our Lives__ movement and more. Hearing about it on a regular basis, I couldn't help but wonder if there was something that could be done to support this cause. I did some digging around and found [this article](http://www.businessinsider.com/heres-how-cops-actually-trace-a-gun-2016-8) by the Business Insider. It's pretty shocking to hear that even now, gun ownership records are not allowed to be stored in a searchable database. I find it really comical that an officer has to, literally, search though paper records and perform a trace. Hello, 18th Century! 
 
-This project here is a manifestation of that desire and my personal interest in blockchain tech. Here, I conceptualize a theoretical simple blockchain, implemented in Python, that could be used to track gun ownership and transfer of possession. I am following this excellent tutorial listed on hackernoon by [Daniel van Flymen](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). 
+This project here is a manifestation of my desire to effect a change as well as my personal interest in blockchain tech. Here, I conceptualize a theoretical simple blockchain, implemented in Python, that could be used to track gun ownership and transfer of possession. I am following this excellent tutorial listed on hackernoon by [Daniel van Flymen](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). 
 
 ## Summary
 
