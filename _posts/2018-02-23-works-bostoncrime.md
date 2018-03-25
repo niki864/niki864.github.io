@@ -1,5 +1,5 @@
 ---
-priority: 0.9
+priority: 0.7
 title: Boston Crime 
 excerpt: Analysis and mapping of crime in the Boston area
 categories: works
