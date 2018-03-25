@@ -14,9 +14,9 @@ tags:
 
 ## ChainGun - A conceptual blockchain network for gun ownership
 
-There's been a lot of talk about gun violence and calls for action against it in social media and through protests such as __March For Our Lives__. Hearing about it on a regular basis, I couldn't help but wonder if there was something that could be done to support this cause. 
+There's been a lot of talk about gun violence and calls for action against it in social media and through protests such as the __March For Our Lives__ movement and more. Hearing about it on a regular basis, I couldn't help but wonder if there was something that could be done to support this cause. 
 
-This project here is a manifestation of that desire and my personal interest in blockchain tech. Here, I conceptualize a theoretical blockchain, implemented in Python, that could be used to track gun ownership and transfer of possession. This follows an excellent tutorial listed on hackernoon by [Daniel van Flymen](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). 
+This project here is a manifestation of that desire and my personal interest in blockchain tech. Here, I conceptualize a theoretical simple blockchain, implemented in Python, that could be used to track gun ownership and transfer of possession. I am following this excellent tutorial listed on hackernoon by [Daniel van Flymen](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). 
 
 ## Summary
 
@@ -222,10 +222,10 @@ Obviously, this is not even close to the actual complexity of a real block-chain
 ## Common Issues
 
 I found that sometimes there were other processes that were still running and occupying ports in my system.
-Run this on your CLI ```ps -fA | grep python```
+Run this on your CLI: ```ps -fA | grep python```
 This will list the processes running on the port.
 
-You can kill them by entering the process number ```kill <processnumber>```. Run chaingun.py after that.
+You can kill them by entering the process number: ```kill <processnumber>```. Run chaingun.py after that.
 
 ## Acknowledgments
 
@@ -233,6 +233,6 @@ You can kill them by entering the process number ```kill <processnumber>```. Run
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for more information.
+This project is licensed under the MIT License. See [LICENSE.md](https://github.com/niki864/ChainGun/LICENSE.md) for more information.
 
 
