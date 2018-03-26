@@ -235,4 +235,6 @@ You can kill them by entering the process number: ```kill <processnumber>```. Ru
 
 This project is licensed under the MIT License. See [LICENSE.md](https://github.com/niki864/ChainGun/blob/master/LICENSE.md) for more information.
 
+[Here's the link to the full github repo](https://github.com/niki864/ChainGun)
+
 
