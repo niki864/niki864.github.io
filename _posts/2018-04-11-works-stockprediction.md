@@ -50,7 +50,7 @@ The following chart was generated using highcharter.
 
 <img src="https://user-images.githubusercontent.com/10093954/38693940-69c9763c-3e56-11e8-809c-bc00ef322693.jpeg" alt="Drawing" style="width:100%;"/>
 
-Check out the whole chart [here]()
+Check out the whole chart [here](https://github.com/niki864/Stock_Prediction_With_R/blob/master/chart.html)
 
 
 ## Prediction Model Description
