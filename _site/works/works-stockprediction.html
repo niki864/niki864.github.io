@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP
+    html5up.net
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Jekyll build mod and further hacks by @arkadianriver, MIT license
+-->
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stock Prediction With R</title>
+  <link rel="icon"  type="image/png"    href="/images/logo.png">
+  <meta name="description" content="Stock prediction using ETFs">
+  <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="canonical" href="http://localhost:4000/works/works-stockprediction.html">
+  <link rel="stylesheet" href="/css/main.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114852514-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114852514-1');
+  </script>
+
+  <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+  <style>
+  #main > header {
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/finance.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/finance.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/finance.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/finance.jpg");
+  }
+  </style>
+  <!--[if lte IE 9]>
+  <style>
+  #main > header {
+    background-image: url("/images/finance.jpg");
+  }
+  </style>
+  -->
+  <link rel="alternate" type="application/rss+xml" title="Nikilesh Kumar" href="http://localhost:4000/feed.xml">
+
+</head>
+
+
+  <body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+<header id="header">
+  <h1><a href="/index.html">Nikilesh Kumar</a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="special">
+        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+        <div id="menu">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/works/">Portfolio</a></li>
+            <li><a href="/topics/">Topics</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/resume.pdf"> Resume </a></li>
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+      <article id="main">
+
+          <header>
+    <h2>Stock Prediction With R</h2>
+    <p>Stock prediction using ETFs</p>
+  </header>
+  <ul class="breadcrumb">
+  <li><a href="/index.html">Home</a></li>
+  <li style="text-transform: capitalize;"><a href="/works">works</a></li>
+  <li>Stock Prediction With R</li>
+</ul>
+
+
+
+          <section class="wrapper style5">
+    <div class="inner">
+      <span id="post-date">11 April 2018</span><hr
+        style="margin-top:3px;" />
+      <h4>Skills</h4>
+  <ul class="techlist">
+<li><span class="tech">RStudio</span></li>
+<li><span class="tech">quantmod</span></li>
+<li><span class="tech">timeseries</span></li>
+<li><span class="tech">xgboost</span></li>
+<li><span class="tech">highcharter</span></li>
+<li><span class="tech">pysch</span></li>
+<li><span class="tech">pROC</span></li>
+</ul>
+
+  
+
+      <h2 id="stock-prediction-with-r">Stock Prediction With R</h2>
+
+<p>This is an example of stock prediction with R using ETFs of which the stock is a composite. To get rid of seasonality in the data, we used technical indicators like RSI, ADX and Parabolic SAR that more or less showed stationarity. The goal of the project is to predict if the stock price today will go higher or lower than yesterday. This work was done as a term project for the course IE 7275: Data Mining for Engineers @ Northeastern University.</p>
+
+<h2 id="packages-required">Packages Required</h2>
+
+<ul>
+  <li>xgboost</li>
+  <li>quantmod</li>
+  <li>highcharter</li>
+  <li>psych</li>
+  <li>pROC</li>
+</ul>
+
+<p>All downloadable from CRAN repositories</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+  <li>Knowledge of R Programming</li>
+  <li>R Studio</li>
+</ul>
+
+<h2 id="dataset-description">Dataset Description</h2>
+
+<p>Data used in this project is obtained from Yahoo Finance API using <em>quantmod</em> built in function <code class="highlighter-rouge">getSymbols()</code>. This gives us data in the form of time series xts objects. Using the <code class="highlighter-rouge">last()</code> function we can specify our time range. I’m using the last 5 years of data for this project.
+The following stocks/ETFs were used:</p>
+<ul>
+  <li>Response Variables: JPMorgan - Open, Close</li>
+  <li>Predictor Variables: FNCL - Fidelity MSCI Financials Index, IYF - iShares US Financials ETF, XLF - Financial Select Sector SPDR Fund</li>
+</ul>
+
+<p>A keen observer would note that all the 3 Predictor variables are ETFs that relate to banking and finance stocks. JPM is composite of all the three above funds.</p>
+
+<h2 id="visualisation-of-price-history">Visualisation of Price History</h2>
+
+<p>The <strong>highcharter</strong> library is a brilliant tool for generating visually appeasing and interactive charts. Although it’s free for non-commercial/academic use, it requires a license for commercial use though. This is the first time I’m playing with this library and I gotta say, it’s really neat.</p>
+
+<p>The following chart was generated using highcharter.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/38693940-69c9763c-3e56-11e8-809c-bc00ef322693.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>Check out the whole chart <a href="">here</a></p>
+
+<h2 id="prediction-model-description">Prediction Model Description</h2>
+
+<p>Our goal in this project is to use ETFs to predict the value of one composite stock. The premise for this is that, we can think of an ETF as a representative for the entire industry. Banking and financial firms are all pretty much correlated to each other as even a minor policy change could potentially affect all of them. Thus, by using the performance of the ETF to train our Machine Learning models, we can arrive at a healthy and reasonable prediction for target stock : <strong>JP Morgan(JPM)</strong></p>
+
+<p>One common mistake in using time series data is that the data tends to exhibit seasonality and to arrive at an accurate measure, we need to convert it into a stationary data. Check out this article by Vegard Flovik where he talks more about this <a href="https://www.linkedin.com/pulse/how-use-machine-learning-time-series-forecasting-vegard-flovik-phd/">https://www.linkedin.com/pulse/how-use-machine-learning-time-series-forecasting-vegard-flovik-phd/</a></p>
+
+<p>One way we can go about doing this is differencing the data. But since this is financial data, the <strong>quantmod</strong> package has a lot of technical indicator functions which we can use to generate indicator data that more or less gets rid of seasonality.</p>
+
+<p>Some of the indicators, we have used in our model are:</p>
+
+<p>RSI - Relative Stregth Index (A measure of how the stock performed scaled to 0-100 w.r.t the Weighted Moving Average)
+<img src="https://user-images.githubusercontent.com/10093954/38693864-2e6c6ec8-3e56-11e8-8cfa-2ee493b11bf8.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>ADX - Average Directional Indicator
+<img src="https://user-images.githubusercontent.com/10093954/38693863-2e5a0e36-3e56-11e8-9631-022569cf1f49.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>Parabolic SAR Trend- Stop and Reverse Indicator
+<img src="https://user-images.githubusercontent.com/10093954/38693862-2e4c9d50-3e56-11e8-8e17-0b62341996a6.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>After munging out all the numbers for the indicators, we then feed it into our model. We also incorporate a lag of 1 day to avoid a lookahead bias on the data.</p>
+
+<h2 id="machine-learning-algorithm">Machine Learning Algorithm</h2>
+
+<p>We will be using the xgboost algorithm with the goal of binary logistic regression. After data preparation into training (<em>approx 70%</em> )and test (<em>approx 30%</em>) sets, we then feed it to the algorithm.</p>
+
+<p>Here’s the ROC Curve for our first run on 10 rounds.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/38693861-2e3d66dc-3e56-11e8-8c44-0ddb7f15f0ed.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>We achieved an AUC of :  0.591939755047997</p>
+
+<p>To verify this claim and to further test our model, we ran KNN classification on the data set. 
+Using a handy script I wrote, we arrived at a optimum K value of 8.</p>
+
+<p>This is the ROC Curve for the k=8 KNN Classification</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/38693860-2e2ae28c-3e56-11e8-9b5a-52971cd871ed.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>We achieved an AUC of : 0.5728</p>
+
+<h2 id="xgboost-visualisation">XGBoost Visualisation</h2>
+
+<p>The DiagrammeR R package allows us to visualise the tree structure generated by xgboost. Here’s the entire structure.</p>
+
+<p><img src="https://user-images.githubusercontent.com/10093954/38693859-2e1b25ea-3e56-11e8-839a-d396bef199c8.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<p>IMO, it looks really cool.</p>
+
+<p>This is what we get when we zoom into one tree
+<img src="https://user-images.githubusercontent.com/10093954/38693858-2e0d0294-3e56-11e8-87a0-8a1c67e0b02b.jpeg" alt="Drawing" style="width:100%;" /></p>
+
+<h2 id="codebase-and-license">Codebase and License</h2>
+
+<p>Here’s the full github repo for <a href="https://github.com/niki864/Stock_Prediction_With_R">this project</a>. This project is licensed under the MIT License - see the <strong>LICENSE.md</strong> file located in my github repo for more details.</p>
+
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<ul>
+  <li>
+    <p>Project Collaborator : <a href="https://www.linkedin.com/in/suman-kumar-ba7454ba/">Suman Kumar</a></p>
+  </li>
+  <li>
+    <p>R Core Team (2013). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  URL http://www.R-project.org/.</p>
+  </li>
+  <li>
+    <p>R Packages used : xgboost, quantmod, highcharter, psych, pROC</p>
+  </li>
+</ul>
+
+
+      <div class="backnext btnbottom">
+                <div class="back">
+        <div class="bpointer"><a href="/works/"
+         class="button small" title="Back">Index</a></div>
+         <!-- class="icon fa-backward" title="Back"></a></div> -->
+        <div class="btitle"><a href="/works/">Works Index</a></div>
+        </div>
+        <div class="next">
+        <div class="npointer"><a href="/works/works-GunChain.html"
+         class="button small" title="Next">Next &gt;</a></div>
+         <!-- class="icon fa-forward" title="Next"></a></div> -->
+        <div class="ntitle"><a href="/works/works-GunChain.html">Chain Gun</a></div>
+        </div>
+
+      </div>
+      <script>
+      document.body.onkeyup = function(e){
+        if (e.keyCode == '37') { window.location = '/works/'; }
+        if (e.keyCode == '39') { window.location = '/works/works-GunChain.html'; }
+      };
+      </script>
+
+  
+    </div>
+  </section>
+
+
+      </article>
+
+      <!-- Footer -->
+<footer id="footer">
+  <ul class="icons">
+    <li><a target="_blank" href="https://twitter.com/trichyflight" class="icon fa-twitter"
+           ><span class="label">twitter</span></a></li>
+    <li><a target="_blank" href="https://github.com/niki864" class="icon fa-github"
+           ><span class="label">github</span></a></li>
+    <li><a target="_blank" href="https://linkedin.com/in/nikileshk" class="icon fa-linkedin-square"
+           ><span class="label">linkedin-square</span></a></li>
+    <li><a target="_blank" href="https://www.facebook.com/nikilesh95" class="icon fa-facebook-official"
+           ><span class="label">facebook-official</span></a></li>
+    <li><a target="_blank" href="/contact/" class="icon fa-envelope"
+           ><span class="label">E-mail</span></a></li>
+    <li><a target="_blank" href="https://www.instagram.com/nikileshk/" class="icon fa-instagram"
+           ><span class="label">instagram</span></a></li>
+  </ul>
+  <ul class="copyright">
+    <li>&copy; 
+    2018
+      Nikilesh Kumar</li>
+    <li><a href="/credits/">Credits</a></li>
+  </ul>
+</footer>
+
+
+      <!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+<script src="/js/main.js"></script>
+
+    </div>
+
+  </body>
+
+</html>

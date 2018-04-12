@@ -5,9 +5,150 @@
     <description>Data Enthusiast &amp;#x2192; Telling Stories That Matter</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Apr 2018 16:46:19 -0400</pubDate>
-    <lastBuildDate>Tue, 10 Apr 2018 16:46:19 -0400</lastBuildDate>
+    <pubDate>Thu, 12 Apr 2018 15:33:23 -0400</pubDate>
+    <lastBuildDate>Thu, 12 Apr 2018 15:33:23 -0400</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Stock Prediction With R</title>
+        <description>&lt;h2 id=&quot;stock-prediction-with-r&quot;&gt;Stock Prediction With R&lt;/h2&gt;
+
+&lt;p&gt;This is an example of stock prediction with R using ETFs of which the stock is a composite. To get rid of seasonality in the data, we used technical indicators like RSI, ADX and Parabolic SAR that more or less showed stationarity. The goal of the project is to predict if the stock price today will go higher or lower than yesterday. This work was done as a term project for the course IE 7275: Data Mining for Engineers @ Northeastern University.&lt;/p&gt;
+
+&lt;h2 id=&quot;packages-required&quot;&gt;Packages Required&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;xgboost&lt;/li&gt;
+  &lt;li&gt;quantmod&lt;/li&gt;
+  &lt;li&gt;highcharter&lt;/li&gt;
+  &lt;li&gt;psych&lt;/li&gt;
+  &lt;li&gt;pROC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All downloadable from CRAN repositories&lt;/p&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Knowledge of R Programming&lt;/li&gt;
+  &lt;li&gt;R Studio&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dataset-description&quot;&gt;Dataset Description&lt;/h2&gt;
+
+&lt;p&gt;Data used in this project is obtained from Yahoo Finance API using &lt;em&gt;quantmod&lt;/em&gt; built in function &lt;code class=&quot;highlighter-rouge&quot;&gt;getSymbols()&lt;/code&gt;. This gives us data in the form of time series xts objects. Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;last()&lt;/code&gt; function we can specify our time range. I’m using the last 5 years of data for this project.
+The following stocks/ETFs were used:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Response Variables: JPMorgan - Open, Close&lt;/li&gt;
+  &lt;li&gt;Predictor Variables: FNCL - Fidelity MSCI Financials Index, IYF - iShares US Financials ETF, XLF - Financial Select Sector SPDR Fund&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A keen observer would note that all the 3 Predictor variables are ETFs that relate to banking and finance stocks. JPM is composite of all the three above funds.&lt;/p&gt;
+
+&lt;h2 id=&quot;visualisation-of-price-history&quot;&gt;Visualisation of Price History&lt;/h2&gt;
+
+&lt;p&gt;The &lt;strong&gt;highcharter&lt;/strong&gt; library is a brilliant tool for generating visually appeasing and interactive charts. Although it’s free for non-commercial/academic use, it requires a license for commercial use though. This is the first time I’m playing with this library and I gotta say, it’s really neat.&lt;/p&gt;
+
+&lt;p&gt;The following chart was generated using highcharter.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693940-69c9763c-3e56-11e8-809c-bc00ef322693.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out the whole chart &lt;a href=&quot;&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;prediction-model-description&quot;&gt;Prediction Model Description&lt;/h2&gt;
+
+&lt;p&gt;Our goal in this project is to use ETFs to predict the value of one composite stock. The premise for this is that, we can think of an ETF as a representative for the entire industry. Banking and financial firms are all pretty much correlated to each other as even a minor policy change could potentially affect all of them. Thus, by using the performance of the ETF to train our Machine Learning models, we can arrive at a healthy and reasonable prediction for target stock : &lt;strong&gt;JP Morgan(JPM)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One common mistake in using time series data is that the data tends to exhibit seasonality and to arrive at an accurate measure, we need to convert it into a stationary data. Check out this article by Vegard Flovik where he talks more about this &lt;a href=&quot;https://www.linkedin.com/pulse/how-use-machine-learning-time-series-forecasting-vegard-flovik-phd/&quot;&gt;https://www.linkedin.com/pulse/how-use-machine-learning-time-series-forecasting-vegard-flovik-phd/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;One way we can go about doing this is differencing the data. But since this is financial data, the &lt;strong&gt;quantmod&lt;/strong&gt; package has a lot of technical indicator functions which we can use to generate indicator data that more or less gets rid of seasonality.&lt;/p&gt;
+
+&lt;p&gt;Some of the indicators, we have used in our model are:&lt;/p&gt;
+
+&lt;p&gt;RSI - Relative Stregth Index (A measure of how the stock performed scaled to 0-100 w.r.t the Weighted Moving Average)
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693864-2e6c6ec8-3e56-11e8-8cfa-2ee493b11bf8.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ADX - Average Directional Indicator
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693863-2e5a0e36-3e56-11e8-9631-022569cf1f49.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parabolic SAR Trend- Stop and Reverse Indicator
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693862-2e4c9d50-3e56-11e8-8e17-0b62341996a6.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After munging out all the numbers for the indicators, we then feed it into our model. We also incorporate a lag of 1 day to avoid a lookahead bias on the data.&lt;/p&gt;
+
+&lt;h2 id=&quot;machine-learning-algorithm&quot;&gt;Machine Learning Algorithm&lt;/h2&gt;
+
+&lt;p&gt;We will be using the xgboost algorithm with the goal of binary logistic regression. After data preparation into training (&lt;em&gt;approx 70%&lt;/em&gt; )and test (&lt;em&gt;approx 30%&lt;/em&gt;) sets, we then feed it to the algorithm.&lt;/p&gt;
+
+&lt;p&gt;Here’s the ROC Curve for our first run on 10 rounds.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693861-2e3d66dc-3e56-11e8-8c44-0ddb7f15f0ed.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We achieved an AUC of :  0.591939755047997&lt;/p&gt;
+
+&lt;p&gt;To verify this claim and to further test our model, we ran KNN classification on the data set. 
+Using a handy script I wrote, we arrived at a optimum K value of 8.&lt;/p&gt;
+
+&lt;p&gt;This is the ROC Curve for the k=8 KNN Classification&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693860-2e2ae28c-3e56-11e8-9b5a-52971cd871ed.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We achieved an AUC of : 0.5728&lt;/p&gt;
+
+&lt;h2 id=&quot;xgboost-visualisation&quot;&gt;XGBoost Visualisation&lt;/h2&gt;
+
+&lt;p&gt;The DiagrammeR R package allows us to visualise the tree structure generated by xgboost. Here’s the entire structure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693859-2e1b25ea-3e56-11e8-839a-d396bef199c8.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;IMO, it looks really cool.&lt;/p&gt;
+
+&lt;p&gt;This is what we get when we zoom into one tree
+&lt;img src=&quot;https://user-images.githubusercontent.com/10093954/38693858-2e0d0294-3e56-11e8-87a0-8a1c67e0b02b.jpeg&quot; alt=&quot;Drawing&quot; style=&quot;width:100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;codebase-and-license&quot;&gt;Codebase and License&lt;/h2&gt;
+
+&lt;p&gt;Here’s the full github repo for &lt;a href=&quot;https://github.com/niki864/Stock_Prediction_With_R&quot;&gt;this project&lt;/a&gt;. This project is licensed under the MIT License - see the &lt;strong&gt;LICENSE.md&lt;/strong&gt; file located in my github repo for more details.&lt;/p&gt;
+
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Project Collaborator : &lt;a href=&quot;https://www.linkedin.com/in/suman-kumar-ba7454ba/&quot;&gt;Suman Kumar&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;R Core Team (2013). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  URL http://www.R-project.org/.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;R Packages used : xgboost, quantmod, highcharter, psych, pROC&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 11 Apr 2018 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/works/works-stockprediction.html</link>
+        <guid isPermaLink="true">http://localhost:4000/works/works-stockprediction.html</guid>
+        
+        <category>RStudio</category>
+        
+        <category>quantmod</category>
+        
+        <category>timeseries</category>
+        
+        <category>xgboost</category>
+        
+        <category>highcharter</category>
+        
+        <category>pysch</category>
+        
+        <category>pROC</category>
+        
+        
+        <category>works</category>
+        
+      </item>
     
       <item>
         <title>Chain Gun</title>
